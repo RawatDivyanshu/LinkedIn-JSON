@@ -1,0 +1,35 @@
+{
+    "name":"LinkedinJSON",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "icons": {
+        "128": "linkedin.png"
+     },
+    "page_action" : {
+        "default_title": "LinkedinJSON"
+    },
+    
+    "background": {
+        "scripts": ["./scripts/events.js"]
+    },
+    
+    "content_scripts": [
+        {
+            "matches": ["https://*.linkedin.com/*"],
+            "css": ["./css/content.css"],
+            "js": ["./scripts/jquery-3.6.0.min.js","./scripts/FileSaver.min.js","./scripts/jsonview.js","./scripts/content.js"]
+        }
+    ],
+
+    "permissions": [
+        "tabs",
+        "storage",
+        "activeTab",
+        "<all_urls>"
+    ],
+
+    "web_accessible_resources": [
+        "./views/slider.html",
+        "./scripts/jquery-3.6.0.min.js"
+    ]
+}
